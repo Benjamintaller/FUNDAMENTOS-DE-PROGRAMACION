@@ -1,0 +1,21 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+using namespace std;
+int main()
+{
+int i=2;
+cout<<"Numeros pares del 1 al 20"<<endl;
+while(i<=20){
+   cout<<i<<" " ;
+   i+=2;
+}
+
+    return 0;
+}

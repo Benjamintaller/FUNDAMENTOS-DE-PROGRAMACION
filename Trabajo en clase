@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() { 
+    long long N; // Permite numeros grnades
+    int contador = 0;
+    cout << "Ingrese el numero entero: ";
+    cin >> N; 
+
+    cout << "Digitos pares: ";
+
+    long long num = N; // Copia el numero original 
+    while (num > 0) { 
+        int digito = num % 10;
+        if (digito % 2 == 0) {
+            cout << digito << " ";
+            contador++;
+        }
+        num /= 10;
+    }
+    cout << " /n cantidad de digitos pares: " << contador << endl;
+    return 0;
+}

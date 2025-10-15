@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int x, b;
+    int suma = 0;
+
+    cout << "Ingrese el valor de x: ";
+    cin >> x;
+    cout << "Ingrese el valor de b (mayor que 1): ";
+    cin >> b;
+
+    if (b <= 1) {
+        cout << "Error: b debe ser mayor que 1." << endl;
+        return 1;
+    }
+
+    for (int i = 1; i <= b; ++i) {
+        suma += pow(x, i);
+    }
+
+    cout << "La suma de la serie es: " << suma << endl;
+
+    return 0;
+}

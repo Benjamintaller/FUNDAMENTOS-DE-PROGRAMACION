@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+
+    cout << "Ingrese el primer número: ";
+    cin >> a;
+    cout << "Ingrese el segundo número: ";
+    cin >> b;
+    cout << "Ingrese el tercer número: ";
+    cin >> c;
+
+    if (a == b && b == c) {
+        cout << "Todos los números son iguales." << endl;
+    } else if (a >= b && a >= c) {
+        cout << "El número mayor es: " << a << endl;
+    } else if (b >= a && b >= c) {
+        cout << "El número mayor es: " << b << endl;
+    } else {
+        cout << "El número mayor es: " << c << endl;
+    }
+
+    return 0;
+}

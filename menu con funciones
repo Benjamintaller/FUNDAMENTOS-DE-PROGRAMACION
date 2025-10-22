@@ -1,0 +1,114 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void mostrarMenu();
+void mayorDeTres();
+void serieFor();
+void pesoTotal();
+
+int main() {
+    int opcion;
+
+    do {
+        mostrarMenu();
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            mayorDeTres();
+            break;
+        case 2:
+            serieFor();
+            break;
+        case 3:
+            pesoTotal();
+            break;
+        case 0:
+            cout << "¡Hasta luego!\n";
+            break;
+        default:
+            cout << "Opción no válida. Intenta de nuevo.\n";
+            break;
+        }
+    } while (opcion != 0);
+
+    return 0;
+}
+void mostrarMenu() {
+     cout << "\nElige una opción:\n";
+    cout << "1. Determinar el mayor de tres números\n";
+    cout << "2. Calcular la serie con ciclo For\n";
+    cout << "3. Calcular el peso total de productos\n";
+    cout << "0. Salir\n";
+    cout << "Opción: ";
+}
+
+
+void mayorDeTres() {
+    int a, b, c;
+
+    cout << "Introduce el primer número: ";
+    cin >> a;
+    cout << "Introduce el segundo número: ";
+    cin >> b;
+    cout << "Introduce el tercer número: ";
+    cin >> c;
+
+    if (a == b && b == c) {
+        cout << "Todos los números son iguales.\n";
+    }
+    else if (a > b && a > c) {
+        cout << "El mayor número es: " << a << endl;
+    }
+    else if (b > a && b > c) {
+        cout << "El mayor número es: " << b << endl;
+    }
+    else {
+        cout << "El mayor número es: " << c << endl;
+    }
+}
+
+void serieFor() {
+    int x, b, suma = 0;
+
+    cout << "Ingrese el valor de x: ";
+    cin >> x;
+    cout << "Ingrese el valor de b (mayor que 1): ";
+    cin >> b;
+
+    if (b <= 1) {
+        cout << "Error: b debe ser mayor que 1.\n";
+        return;
+    }
+
+    for (int i = 1; i <= b; i++) {
+        suma += pow(x, i);
+    }
+
+    cout << "La suma de la serie es: " << suma << endl;
+}
+
+void pesoTotal() {
+    int cantidad;
+    double peso, total = 0;
+    char continuar;
+
+    do {
+        cout << "¿Cuántos productos deseas ingresar? ";
+        cin >> cantidad;
+
+        total = 0;
+        for (int i = 1; i <= cantidad; i++) {
+            cout << "Peso del producto " << i << " (en gramos): ";
+            cin >> peso;
+            total += peso;
+        }
+
+        cout << "El peso total de los productos es: " << total << " gramos.\n";
+
+        cout << "¿Quieres ingresar más productos? (s/n): ";
+        cin >> continuar;
+
+    } while (continuar == 's' || continuar == 'S');
+}

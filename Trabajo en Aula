@@ -1,0 +1,32 @@
+Ejercicio 8
+#include <iostream>
+#include <cmath> // Para usar la función abs()
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño del vector: ";
+    cin >> n;
+
+    double A[n];
+
+    // Leer los valores del vector
+    cout << "Ingrese los elementos del vector:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+
+    double maxDif = 0; // Variable para guardar la mayor diferencia
+
+    // Calcular la mayor diferencia entre elementos consecutivos
+    for (int i = 0; i < n - 1; i++) {
+        double dif = fabs(A[i+1] - A[i]); // Diferencia absoluta
+        if (dif > maxDif) {
+            maxDif = dif;
+        }
+    }
+
+    cout << "\nLa diferencia mas grande entre dos elementos consecutivos es: " << maxDif << endl;
+
+    return 0;
+}

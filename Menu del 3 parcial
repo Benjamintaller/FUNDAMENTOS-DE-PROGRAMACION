@@ -1,0 +1,126 @@
+#include <iostream>
+#include <cmath>
+#define MAX 100
+using namespace std;
+
+
+
+int sumaImpares(int N);
+void ejercicio1();
+float distancia(float x1, float y1, float x2, float y2);
+void ejercicio2();
+void Cargar(float v[], int& n);
+void Mostrar(const float v[], int n);
+float Promedio(const float v[], int n);
+float Mayor(const float v[], int n);
+float Menor(const float v[], int n);
+void ejercicio3();
+
+
+int main() {
+    int op;
+    do {
+        cout << "\n MENU PRINCIPAL \n";
+        cout << "1) Suma de N primeros impares\n";
+        cout << "2) Distancia entre dos puntos\n";
+        cout << "3) Notas de N estudiantes\n";
+        cout << "4) Salir\n";
+        cout << "Seleccione una opcion: ";
+        cin >> op;
+
+        switch (op) {
+        case 1: ejercicio1(); 
+            break;
+        case 2: ejercicio2();
+            break;
+        case 3: ejercicio3(); 
+            break;
+        case 4: cout << "Saliendo...\n";
+            break;
+        default: cout << "Opcion invalida.\n";
+        }
+    } while (op != 4);
+
+    return 0;
+}
+
+
+int sumaImpares(int N) {
+    int suma = 0, num = 1;
+    for (int i = 1; i <= N; i++) {
+        suma += num;
+        num += 2;
+    }
+    return suma;
+}
+
+void ejercicio1() {
+    int N;
+    cout << "\nIngrese N: ";
+    cin >> N;
+    cout << "La suma de los " << N << " primeros impares es: " << sumaImpares(N) << endl;
+}
+
+float distancia(float x1, float y1, float x2, float y2) {
+    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+}
+
+void ejercicio2() {
+    float x1, y1, x2, y2;
+    cout << "\nIngrese P1 (x1 y1): ";
+    cin >> x1 >> y1;
+    cout << "Ingrese P2 (x2 y2): ";
+    cin >> x2 >> y2;
+    cout << "Distancia: " << distancia(x1, y1, x2, y2) << endl;
+}
+
+void Cargar(float v[], int& n) {
+    do {
+        cout << "Cantidad de estudiantes (1.." << MAX << "): ";
+        cin >> n;
+    } while (n < 1 || n > MAX);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Nota " << (i + 1) << ": ";
+        cin >> v[i];
+    }
+}
+
+void Mostrar(const float v[], int n) {
+    cout << "\nNotas: ";
+    for (int i = 0; i < n; i++) cout << v[i] << "  ";
+    cout << endl;
+}
+
+float Promedio(const float v[], int n) {
+    float s = 0;
+    for (int i = 0; i < n; i++) s += v[i];
+    return s / n;
+}
+
+float Mayor(const float v[], int n) {
+    float m = v[0];
+    for (int i = 1; i < n; i++) if (v[i] > m) m = v[i];
+    return m;
+}
+
+float Menor(const float v[], int n) {
+    float m = v[0];
+    for (int i = 1; i < n; i++) if (v[i] < m) m = v[i];
+    return m;
+}
+
+void ejercicio3() {
+    float notas[MAX];
+    int n;
+
+    cout << "\n Carga de Notas \n";
+    Cargar(notas, n);
+
+    cout << "\n Notas Ingresadas \n";
+    Mostrar(notas, n);
+
+    cout << "\nPromedio: " << Promedio(notas, n) << endl;
+    cout << "Nota mas alta: " << Mayor(notas, n) << endl;
+    cout << "Nota mas baja: " << Menor(notas, n) << endl;
+}

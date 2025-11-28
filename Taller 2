@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+void leer(string &frase, string &palabra);
+int encontrar(const string &frase, const string &palabra);  
+void mostrar(const string &frase, const string &palabra, int pos);
+
+int main() {
+    string frase, palabra;
+    leer(frase, palabra);  
+    int pos = encontrar(frase, palabra);  
+    mostrar(frase, palabra, pos); 
+    return 0;
+}
+void leer(string &frase, string &palabra) {
+    cout << "Ingrese la frase: "<<endl;
+    getline(cin, frase);  
+    cout << "Ingrese la palabra a buscar: "<<endl;
+    cin >> palabra;  
+}
+int encontrar(const string &frase, const string &palabra) {
+    size_t pos = frase.find(palabra);  
+    return pos;  
+}
+void mostrar(const string &frase, const string &palabra, int pos) {
+    if (pos != string::npos) {  
+        cout << "La palabra '" << palabra << "' está en la frase." << endl;
+        cout << "La palabra está en la posición " << pos << " de la frase." << endl;
+    } else {
+        cout << "La palabra '" << palabra << "' no está en la frase." << endl;
+    }
+}
